@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.resourceserver_a.api;
+package jmdbtutorial.websecurity.resourceserver_b.api;
 
 import com.codahale.metrics.annotation.Timed;
 
@@ -15,6 +15,6 @@ public class ProtectedResource {
     @GET
     @Timed
     public SecretKnowledge tellMeTheSecret() {
-        return new SecretKnowledge("The answer is..... 42");
+        return new SecretKnowledge("The question is..... How many streets must a mouse walk down?");
     }
 }
