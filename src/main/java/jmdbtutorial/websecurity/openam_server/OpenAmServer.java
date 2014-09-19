@@ -11,7 +11,10 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+import static ch.qos.logback.classic.Level.INFO;
 import static java.lang.String.format;
+import static jmdbtutorial.websecurity.platform.LogbackConfiguration.STANDARD_OPS_FORMAT;
+import static jmdbtutorial.websecurity.platform.LogbackConfiguration.initialiseConsoleLogging;
 
 public class OpenAmServer {
 
@@ -35,8 +38,10 @@ public class OpenAmServer {
         this.openAmWarFilePath = openAmWarFilePath;
     }
 
-    public void start()  {
+    public void start() {
         try {
+            initialiseConsoleLogging(INFO, STANDARD_OPS_FORMAT);
+
             File openAmWar = new File(openAmWarFilePath);
             if (!openAmWar.exists()) {
                 throw new FileNotFoundException(openAmWar.getAbsolutePath());
@@ -84,5 +89,6 @@ public class OpenAmServer {
 
         return resourceHandler;
     }
+
 
 }
