@@ -4,6 +4,7 @@ import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.eclipse.jetty.webapp.WebAppContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,6 +48,7 @@ public class OpenAmServer {
 
             server.setHandler(rootHandler());
 
+
             server.start();
 
             log.info((format("Static content is from [%s]", new File(webrootDir).getCanonicalPath())));
@@ -62,11 +64,18 @@ public class OpenAmServer {
     private Handler rootHandler() {
         HandlerList handlerList = new HandlerList();
 
-        Handler[] handlers = new Handler[]{resourceHandler()};
+        Handler[] handlers = new Handler[]{openAmWebAppHandler()};
 
         handlerList.setHandlers(handlers);
 
         return handlerList;
+    }
+
+    private Handler openAmWebAppHandler() {
+        WebAppContext webappHandler = new WebAppContext();
+        webappHandler.setContextPath("/");
+        webappHandler.setWar(openAmWarFilePath);
+        return webappHandler;
     }
 
     private ResourceHandler resourceHandler() {
