@@ -16,22 +16,24 @@ public class OpenAmServer {
     private static final Logger log = LoggerFactory.getLogger(OpenAmServer.class);
 
     public static void main(String[] args) {
-        new OpenAmServer(9009, args[0]).start();
+        new OpenAmServer("openam-server", 9009, args[0]).start();
     }
 
+    private String serverName;
     private final int httpPort;
     private final String webrootDir;
     private Server server;
 
 
-    public OpenAmServer(int httpPort, String webrootDir) {
+    public OpenAmServer(String serverName, int httpPort, String webrootDir) {
+        this.serverName = serverName;
         this.httpPort = httpPort;
         this.webrootDir = webrootDir;
     }
 
     public void start()  {
         try {
-            log.info(format("Starting Open AM Server on port %d", httpPort));
+            log.info(format("Starting Server [%s] on port %d", serverName, httpPort));
 
             this.server = new Server(httpPort);
 
@@ -40,11 +42,11 @@ public class OpenAmServer {
             server.start();
 
             log.info((format("Static content is from [%s]", new File(webrootDir).getCanonicalPath())));
-            log.info(format("Server started on port %d", httpPort));
+            log.info(format("Server [%s] started @ http://localhost:%d", serverName, httpPort));
 
             server.join();
         } catch (Throwable t) {
-            throw new RuntimeException("Could not start open am server (see cause)", t);
+            throw new RuntimeException(format("Could not start server [%s] (see cause)", serverName), t);
         }
     }
 
