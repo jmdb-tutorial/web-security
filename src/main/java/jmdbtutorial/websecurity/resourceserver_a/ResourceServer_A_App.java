@@ -3,7 +3,7 @@ package jmdbtutorial.websecurity.resourceserver_a;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import jmdbtutorial.websecurity.resourceserver_a.api.ProtectedResource;
+import jmdbtutorial.websecurity.resourceserver_a.api.ProtectedResourceA;
 
 public class ResourceServer_A_App extends Application<ResourceServer_A_Configuration> {
 
@@ -19,6 +19,6 @@ public class ResourceServer_A_App extends Application<ResourceServer_A_Configura
     @Override
     public void run(ResourceServer_A_Configuration configuration,
                     Environment environment) {
-        environment.jersey().register(new ProtectedResource());
+        environment.jersey().register(new ProtectedResourceA());
     }
 }

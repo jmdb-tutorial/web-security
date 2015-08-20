@@ -8,13 +8,13 @@ import javax.ws.rs.Produces;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
-@Path("/protected")
+@Path("/protecteda")
 @Produces(APPLICATION_JSON)
-public class ProtectedResource {
+public class ProtectedResourceA {
 
     @GET
     @Timed
-    public SecretKnowledge tellMeTheSecret() {
-        return new SecretKnowledge("The answer is..... 42");
+    public SecretKnowledgeA tellMeTheSecret() {
+        return new SecretKnowledgeA("The answer is..... 42");
     }
 }

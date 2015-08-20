@@ -1,13 +1,13 @@
-package jmdbtutorial.websecurity.resourceserver_a.api;
+package jmdbtutorial.websecurity.resourceserver_b.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SecretKnowledge {
+public class SecretKnowledgeB {
 
 
     private final String theMessage;
 
-    public SecretKnowledge(String theMessage) {
+    public SecretKnowledgeB(String theMessage) {
         this.theMessage = theMessage;
     }
 
