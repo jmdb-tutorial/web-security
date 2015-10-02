@@ -3,7 +3,7 @@ package jmdbtutorial.websecurity.authenticationserver;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import jmdbtutorial.websecurity.authenticationserver.api.AuthenticationResource;
+import jmdbtutorial.websecurity.authenticationserver.api.AuthenticateResource;
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 
@@ -30,7 +30,7 @@ public class AuthenticationServer_App extends Application<AuthenticationServer_C
 
         addCrossOriginFilter(environment);
 
-        environment.jersey().register(new AuthenticationResource());
+        environment.jersey().register(new AuthenticateResource());
 
 
     }

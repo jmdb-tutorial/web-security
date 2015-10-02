@@ -11,7 +11,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/authenticate")
 @Produces(APPLICATION_JSON)
-public class AuthenticationResource {
+public class AuthenticateResource {
 
     @POST
     @Timed
