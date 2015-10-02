@@ -2,13 +2,23 @@ package jmdbtutorial.websecurity.web_application;
 
 import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 import io.dropwizard.Application;
-import io.dropwizard.assets.AssetsBundle;
+import io.dropwizard.jetty.HttpConnectorFactory;
+import io.dropwizard.lifecycle.ServerLifecycleListener;
+import io.dropwizard.server.SimpleServerFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import jmdbtutorial.websecurity.resourceserver_b.ResourceServer_B_Configuration;
-import jmdbtutorial.websecurity.resourceserver_b.api.ProtectedResourceB;
+import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static java.lang.String.format;
 
 public class WebApplication extends Application<WebApplication_Configuration> {
+
+    Logger LOG = LoggerFactory.getLogger(WebApplication.class);
+
 
     public static void main(String[] args) throws Exception {
         new WebApplication().run(args);
@@ -25,5 +35,22 @@ public class WebApplication extends Application<WebApplication_Configuration> {
 
         environment.jersey().disable();
 
+        environment.lifecycle().addServerLifecycleListener(new ServerLifecycleListener() {
+            @Override
+            public void serverStarted(Server server) {
+                for (Connector connector : server.getConnectors()) {
+                    if (connector instanceof ServerConnector) {
+                        ServerConnector serverConnector = (ServerConnector) connector;
+                        System.out.println(serverConnector.getName() + " " + serverConnector.getLocalPort());
+                        LOG.info("");
+                        LOG.info(format("Started web application @ http://%s:%s/application", "websecurity.tutorial.com", serverConnector.getLocalPort()));
+                        LOG.info("");
+                    }
+                }
+            }
+        });
+
     }
+
+
 }

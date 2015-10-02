@@ -4,7 +4,7 @@
 
 homebrew
 ansible
-openam (see ixcode/openam-server)
+openam (see ixcode/openam-server and https://github.com/ForgeRock/frstack)
 
 ## Setup Machine
 
@@ -14,7 +14,14 @@ cd ops/dev/local/
 ## Phase 1 - Using REST apis
 
 In this phase we will explore a very simple javascript application that directly interacts with openam
+
+- Secure access to api calls
+- Define mappings of user roles to permissions
+- Control the display of elements on the page based on roles.
  
 ## Phase 2 - Protecting using an agent
 
-In this phase we will extend our application so that it 
+In this phase we will extend our application so that it is protected by an agent which means we will redirect to the 
+open am server for login.
+
+- Get Role information into services
