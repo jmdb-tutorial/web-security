@@ -42,7 +42,7 @@ public class AuthenticationServer_App extends Application<AuthenticationServer_C
         filterHolder.setInitParameter(ALLOWED_ORIGINS_PARAM, "http://websecurity.tutorial.com:8085");
         filterHolder.setInitParameter(ALLOWED_METHODS_PARAM, "GET,POST,DELETE,PUT,OPTIONS");
         filterHolder.setInitParameter(ALLOWED_HEADERS_PARAM, "X-Auth-Username, X-Auth-Password, X-Requested-With,Content-Type,Accept,Origin,Access-Control-Request-Headers,cache-control");
-        filterHolder.setInitParameter(EXPOSED_HEADERS_PARAM, "authorization-token");
+
 
     }
 }
