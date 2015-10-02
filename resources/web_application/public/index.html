@@ -2,6 +2,7 @@
 
 <head>
     <title>Welcome to our test application</title>
+    <script src="login.js"></script>
 </head>
 
 <div>
@@ -10,7 +11,8 @@
 
     <p>This application has two resource servers, A and B. They both use an openam server to authenticate.</p>
 
-    <p>Version one of the app and the apis simply uses javascript on the client with local storage to manage authentication. It then uses the token it gets back to pass on to the http requests it makes.</p>
+    <p>Version one of the app and the apis simply uses javascript on the client with local storage to manage
+        authentication. It then uses the token it gets back to pass on to the http requests it makes.</p>
 
 </div>
 
@@ -19,14 +21,16 @@
     <p>Here we can log in:</p>
 
 
-    <form>
+    <form id="loginForm">
         <label for="username">Username</label>
-        <input id="username" type="text" />
+        <input id="username" type="text"/>
         <label for="password">Password</label>
-        <input id="password" type="password" />
+        <input id="password" type="password"/>
 
-        <input type="button" value="Login"></form>
+        <input id="loginBtn" type="button" value="Login">
     </form>
+
+
 
 </div>
 

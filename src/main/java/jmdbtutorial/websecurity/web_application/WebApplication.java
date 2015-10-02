@@ -36,7 +36,7 @@ public class WebApplication extends Application<WebApplication_Configuration> {
         environment.jersey().disable();
 
         environment.lifecycle().addServerLifecycleListener(new ServerLifecycleListener() {
-            @Override
+
             public void serverStarted(Server server) {
                 for (Connector connector : server.getConnectors()) {
                     if (connector instanceof ServerConnector) {

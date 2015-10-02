@@ -6,6 +6,12 @@
         dest: /etc/hosts
         line: 127.0.0.1       websecurity.tutorial.com
 
+    - name: "Add auth service  hosts"
+      lineinfile:
+        state: present
+        dest: /etc/hosts
+        line: 127.0.0.1       auth.websecurity.tutorial.com
+
     - name: "Add openam to hosts"
       lineinfile:
         state: present
