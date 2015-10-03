@@ -18,6 +18,8 @@ public class BankingWebapp extends DropwizardWebApp<BankingWebapp_Configuration>
     @Override
     public void run(BankingWebapp_Configuration configuration, Environment environment) {
         environment.jersey().setUrlPattern("/banking/*");
+        environment.jersey().register(new LoginResource());
+        environment.jersey().register(new LogoutResource());
         environment.jersey().register(new UnsafeTransferResource());
 
         super.run(configuration, environment);

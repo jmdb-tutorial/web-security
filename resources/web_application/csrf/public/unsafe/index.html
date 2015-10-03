@@ -10,7 +10,11 @@
 
 <p>this is a pretend bank where I can do a transfer</p>
 
-<p>We have pretended that the bank has already logged us in so you can have a look at the cookie in your browser</p>
+<p>Before you can use the method, you have to <a href="http://banking.example.com:8088/application/banking/login?redirect=http://banking.example.com:8088/application/unsafe/index.html">Log In</a> Login is pretty stupid here, just sets a cookie for later</a></p>
+
+<p>You can also <a href="http://banking.example.com:8088/application/banking/logout?redirect=http://banking.example.com:8088/application/unsafe/index.html">Log out</a> Logout to remove the cookie</a></p>
+
+<p>In this version we are deliberately not adding 'Secure' to the cookie definition which means that you can see it if you inspect the page (say using google developer tools) this is so you can see whats going on, normally it would be marked as secure which means 'http only' which means javascript cannot see it.</p>
 
 <p>To Transfer some money legitimately you can click <a href="http://banking.example.com:8088/application/banking/unsafe_transfer?from=VICTIM&to=FRIEND_OF_VICTIM&amount=10 GBP">this link</a></p>
 
