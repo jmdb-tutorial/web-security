@@ -28,14 +28,14 @@ public class AuthenticationServer_App extends Application<AuthenticationServer_C
                     Environment environment) {
 
 
-        addCrossOriginFilter(environment);
+        addCrossOriginResourceSharingFilter(environment);
 
         environment.jersey().register(new AuthenticateResource());
 
 
     }
 
-    private void addCrossOriginFilter(Environment environment) {
+    private void addCrossOriginResourceSharingFilter(Environment environment) {
         FilterHolder filterHolder = environment.getApplicationContext().addFilter(CrossOriginFilter.class, "/*", EnumSet.of(REQUEST));
 
         filterHolder.setInitParameter(ACCESS_CONTROL_ALLOW_METHODS_HEADER, "GET,POST,DELETE,PUT,OPTIONS");

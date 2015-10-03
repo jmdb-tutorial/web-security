@@ -2,7 +2,10 @@ function valueFrom(id) {
     return document.getElementById(id).value
 }
 
-
+function handleLoginResponse(xhttp) {
+    console.log("Got a 200 response - " + xhttp.responseText);
+    localStorage.setItem("tokenId", xhttp.responseText);
+}
 
 
 function loginBtn_click() {
@@ -12,7 +15,7 @@ function loginBtn_click() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            console.log("Got a 200 response - " + xhttp.responseText);
+            handleLoginResponse(xhttp);
         }
     }
 
@@ -23,7 +26,7 @@ function loginBtn_click() {
 
     xhttp.send("{}");
 
-    localStorage.setItem("token", "foo");
+
 }
 
 
