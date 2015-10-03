@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.csrf.banking;
+package jmdbtutorial.websecurity.csrf.banking.authn;
 
 import com.codahale.metrics.annotation.Timed;
 

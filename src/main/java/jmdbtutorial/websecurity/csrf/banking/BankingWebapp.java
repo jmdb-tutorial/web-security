@@ -1,6 +1,8 @@
 package jmdbtutorial.websecurity.csrf.banking;
 
 import io.dropwizard.setup.Environment;
+import jmdbtutorial.websecurity.csrf.banking.authn.LoginResource;
+import jmdbtutorial.websecurity.csrf.banking.authn.LogoutResource;
 import jmdbtutorial.websecurity.csrf.banking.unsafe.UnsafeTransferResource;
 import jmdbtutorial.websecurity.platform.DropwizardWebApp;
 

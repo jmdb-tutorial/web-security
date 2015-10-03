@@ -1,7 +1,6 @@
 package jmdbtutorial.websecurity.csrf.banking.unsafe;
 
 import com.codahale.metrics.annotation.Timed;
-import jmdbtutorial.websecurity.csrf.banking.LoginResource;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Cookie;
@@ -9,8 +8,8 @@ import javax.ws.rs.core.Response;
 
 import static javax.ws.rs.core.MediaType.TEXT_HTML;
 import static javax.ws.rs.core.MediaType.TEXT_HTML_TYPE;
-import static jmdbtutorial.websecurity.csrf.banking.LoginResource.AUTH_COOKIE_NAME;
-import static jmdbtutorial.websecurity.csrf.banking.LoginResource.AUTH_SECRET;
+import static jmdbtutorial.websecurity.csrf.banking.authn.LoginResource.AUTH_COOKIE_NAME;
+import static jmdbtutorial.websecurity.csrf.banking.authn.LoginResource.AUTH_SECRET;
 
 @Path("unsafe_transfer")
 @Produces(TEXT_HTML)
