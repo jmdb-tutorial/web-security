@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.resourceserver_a;
+package jmdbtutorial.websecurity.openam.resourceserver_a;
 
 import io.dropwizard.Configuration;
 

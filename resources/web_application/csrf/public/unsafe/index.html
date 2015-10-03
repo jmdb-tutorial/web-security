@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Banking application</title>
+</head>
+<body>
+
+<h1>Banking application</h1>
+
+<p>this is a pretend bank where I can do a transfer</p>
+
+<p>We have pretended that the bank has already logged us in so you can have a look at the cookie in your browser</p>
+
+<p>To Transfer some money legitimately you can click <a href="http://banking.example.com:8088/application/banking/unsafe_transfer?from=VICTIM&to=FRIEND_OF_VICTIM&amount=10 GBP">this link</a></p>
+
+<p>OR use this form</p>
+
+<form id ="transferForm" action="http://banking.example.com:8088/application/banking/unsafe_transfer" method="POST">
+
+       <p> <label for="from">From Account</label>
+        <input id="from" name="from" type="text" value="VICTIM"/></p>
+
+        <p><label for="to">To Account</label>
+        <input id="to" type="text" name="to" value="FREIND_OF_VICTIM"/></p>
+
+        <p><label for="amount">Amount</label>
+        <input id="amount" name="amount" type="text" value="10 GBP"/></p>
+
+        <p><input id="transferBtn" type="submit" value="transfer"></p>
+
+</form>
+
+</body>
+</html>

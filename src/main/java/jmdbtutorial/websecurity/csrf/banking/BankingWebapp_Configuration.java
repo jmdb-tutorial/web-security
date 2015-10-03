@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.web_application;
+package jmdbtutorial.websecurity.csrf.banking;
 
 import com.bazaarvoice.dropwizard.assets.AssetsBundleConfiguration;
 import com.bazaarvoice.dropwizard.assets.AssetsConfiguration;
@@ -8,7 +8,7 @@ import io.dropwizard.Configuration;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-public class WebApplication_Configuration extends Configuration implements AssetsBundleConfiguration {
+public class BankingWebapp_Configuration extends Configuration implements AssetsBundleConfiguration {
 
     @Valid
     @NotNull

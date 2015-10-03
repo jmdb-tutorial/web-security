@@ -1,9 +1,9 @@
-package jmdbtutorial.websecurity.authenticationserver;
+package jmdbtutorial.websecurity.openam.authenticationserver;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import jmdbtutorial.websecurity.authenticationserver.api.AuthenticateResource;
+import jmdbtutorial.websecurity.openam.authenticationserver.api.AuthenticateResource;
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 

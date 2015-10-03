@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.authenticationserver;
+package jmdbtutorial.websecurity.openam.authenticationserver;
 
 import io.dropwizard.Configuration;
 

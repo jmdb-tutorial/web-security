@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.resourceserver_a.api;
+package jmdbtutorial.websecurity.openam.resourceserver_a.api;
 
 import com.codahale.metrics.annotation.Timed;
 

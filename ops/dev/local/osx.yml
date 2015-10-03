@@ -12,6 +12,19 @@
         dest: /etc/hosts
         line: 127.0.0.1       auth.websecurity.tutorial.com
 
+    - name: "Add csrf application to hosts"
+      lineinfile:
+        state: present
+        dest: /etc/hosts
+        line: 127.0.0.1       csrf.example.com
+
+    - name: "Add evil hacker to hosts"
+      lineinfile:
+        state: present
+        dest: /etc/hosts
+        line: 127.0.0.1       csrf.evilhacker.com
+
+
     - name: "Add openam to hosts"
       lineinfile:
         state: present

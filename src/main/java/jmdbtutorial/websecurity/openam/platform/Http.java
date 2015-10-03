@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.platform;
+package jmdbtutorial.websecurity.openam.platform;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
