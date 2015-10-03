@@ -8,7 +8,7 @@ public class BankingWebapp extends DropwizardWebApp<BankingWebapp_Configuration>
 
 
     public static void main(String[] args) throws Exception {
-        new BankingWebapp("banking.example.com", "application", "/web_application/csrf/public", "index.html").run(args);
+        new BankingWebapp("banking.example.com", "application", "/web_application/csrf/bank/public", "index.html").run(args);
     }
 
     public BankingWebapp(String hostName, String rootPath, String serveFrom, String indexPage) {

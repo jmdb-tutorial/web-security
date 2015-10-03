@@ -16,13 +16,13 @@
       lineinfile:
         state: present
         dest: /etc/hosts
-        line: 127.0.0.1       csrf.example.com
+        line: 127.0.0.1       banking.example.com
 
     - name: "Add evil hacker to hosts"
       lineinfile:
         state: present
         dest: /etc/hosts
-        line: 127.0.0.1       csrf.evilhacker.com
+        line: 127.0.0.1       hacker.com
 
 
     - name: "Add openam to hosts"
