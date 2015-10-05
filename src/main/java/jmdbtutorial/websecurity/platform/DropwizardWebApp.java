@@ -39,8 +39,7 @@ public class DropwizardWebApp<T extends Configuration> extends Application<T> {
     }
 
     @Override
-    public void run(T configuration,
-                    Environment environment) {
+    public void run(T configuration, Environment environment) {
 
         if (disableJersey) {
             environment.jersey().disable();
