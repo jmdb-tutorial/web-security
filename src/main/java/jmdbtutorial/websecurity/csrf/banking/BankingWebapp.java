@@ -3,6 +3,8 @@ package jmdbtutorial.websecurity.csrf.banking;
 import io.dropwizard.setup.Environment;
 import jmdbtutorial.websecurity.csrf.banking.authn.LoginResource;
 import jmdbtutorial.websecurity.csrf.banking.authn.LogoutResource;
+import jmdbtutorial.websecurity.csrf.banking.safe.SafeIndexResource;
+import jmdbtutorial.websecurity.csrf.banking.safe.SafeTransferResource;
 import jmdbtutorial.websecurity.csrf.banking.unsafe.UnsafeTransferResource;
 import jmdbtutorial.websecurity.platform.DropwizardWebApp;
 
@@ -22,6 +24,8 @@ public class BankingWebapp extends DropwizardWebApp<BankingWebapp_Configuration>
         environment.jersey().setUrlPattern("/banking/*");
         environment.jersey().register(new LoginResource());
         environment.jersey().register(new LogoutResource());
+        environment.jersey().register(new SafeIndexResource());
+        environment.jersey().register(new SafeTransferResource());
         environment.jersey().register(new UnsafeTransferResource());
 
         super.run(configuration, environment);

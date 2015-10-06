@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Banking application</title>
+</head>
+<body>
+
+<h1>Banking application - SAFE VERSION!</h1>
+
+<p>this is a pretend bank where I can do a transfer</p>
+
+<p>Before you can use the method, you have to <a
+        href="http://banking.example.com:8088/application/banking/login?redirect=http://banking.example.com:8088/application/banking/index.html">Log
+    In</a> Login is pretty stupid here, just sets a cookie for later</a></p>
+
+<p>You can also <a
+        href="http://banking.example.com:8088/application/banking/logout?redirect=http://banking.example.com:8088/application/banking/index.html">Log
+    out</a> Logout to remove the cookie</a></p>
+
+<p>In this version we are deliberately not adding 'Secure' to the cookie definition which means that you can see it if
+    you inspect the page (say using google developer tools) this is so you can see whats going on, normally it would be
+    marked as secure which means 'http only' which means javascript cannot see it.</p>
+
+<p>To Transfer some money legitimately you can click <a
+        href="http://banking.example.com:8088/application/banking/safe_transfer?from=VICTIM&to=FRIEND_OF_VICTIM&amount=10%20GBP&csrfToken={{csrfToken}}">this
+    link</a></p>
+
+<p>OR use this form</p>
+
+<form id="transferForm" action="http://banking.example.com:8088/application/banking/safe_transfer" method="POST">
+
+    <p><label for="from">From Account</label>
+        <input type="hidden" name="csrfToken" value="{{csrfToken}}" />
+        <input id="from" name="from" type="text" value="VICTIM"/></p>
+
+
+    <p><label for="to">To Account</label>
+        <input id="to" type="text" name="to" value="FREIND_OF_VICTIM"/></p>
+
+    <p><label for="amount">Amount</label>
+        <input id="amount" name="amount" type="text" value="10 GBP"/></p>
+
+    <p><input id="transferBtn" type="submit" value="transfer"></p>
+
+</form>
+
+</body>
+</html>
