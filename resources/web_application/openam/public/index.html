@@ -1,37 +1,14 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Welcome to our test application</title>
-    <script src="authn.js"></script>
+    <meta charset="UTF-8">
+    <title>Demo applications for Security</title>
 </head>
+<body>
+    <h1>Demo security apps</h1>
 
-<div>
+    <p>Here are a couple of web apps that demonstrate doing api security in different ways.</p>
 
-    <h1>Test application</h1>
-
-    <p>This application has two resource servers, A and B. They both use an openam server to authenticate.</p>
-
-    <p>Version one of the app and the apis simply uses javascript on the client with local storage to manage
-        authentication. It then uses the token it gets back to pass on to the http requests it makes.</p>
-
-</div>
-
-<div>
-
-    <p>Here we can log in:</p>
-
-
-    <form id="loginForm">
-        <label for="username">Username</label>
-        <input id="username" type="text"/>
-        <label for="password">Password</label>
-        <input id="password" type="password"/>
-
-        <input id="loginBtn" type="button" value="Login">
-    </form>
-
-
-
-</div>
-
+    <p>First, an app that talks directly to openam <a href="direct/index.html">here</a></p>
+</body>
 </html>

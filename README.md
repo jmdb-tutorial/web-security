@@ -25,3 +25,11 @@ In this phase we will extend our application so that it is protected by an agent
 open am server for login.
 
 - Get Role information into services
+
+# TODO
+
+- Add XSS to openam server
+- Build out authentication api
+- Cookies?
+- Multiple services
+- API Gateway

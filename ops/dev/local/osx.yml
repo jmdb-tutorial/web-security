@@ -6,6 +6,19 @@
         dest: /etc/hosts
         line: 127.0.0.1       websecurity.tutorial.com
 
+    - name: "Add resource server a"
+      lineinfile:
+        state: present
+        dest: /etc/hosts
+        line: 127.0.0.1       a.resource.server.com
+
+    - name: "Add resource server b"
+      lineinfile:
+        state: present
+        dest: /etc/hosts
+        line: 127.0.0.1       b.resource.server.com
+
+
     - name: "Add auth service  hosts"
       lineinfile:
         state: present

@@ -24,7 +24,7 @@ public class WebApplication extends Application<WebApplication_Configuration> {
 
     @Override
     public void initialize(Bootstrap<WebApplication_Configuration> bootstrap) {
-        bootstrap.addBundle(new ConfiguredAssetsBundle("/web_application/csrf/bank/public", "/", "index.html"));
+        bootstrap.addBundle(new ConfiguredAssetsBundle("/web_application/openam/public", "/", "index.html"));
     }
 
     @Override
