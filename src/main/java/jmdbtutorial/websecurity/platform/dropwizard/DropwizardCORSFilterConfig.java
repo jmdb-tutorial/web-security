@@ -16,7 +16,7 @@ public class DropwizardCORSFilterConfig {
         filterHolder.setInitParameter(ACCESS_CONTROL_ALLOW_METHODS_HEADER, "GET,POST,DELETE,PUT,OPTIONS");
         filterHolder.setInitParameter(ALLOWED_ORIGINS_PARAM, origins);
         filterHolder.setInitParameter(ALLOWED_METHODS_PARAM, "GET,POST,DELETE,PUT,OPTIONS");
-        filterHolder.setInitParameter(ALLOWED_HEADERS_PARAM, "X-Auth-Username, X-Auth-Password, X-Requested-With,Content-Type,Accept,Origin,Access-Control-Request-Headers,cache-control");
+        filterHolder.setInitParameter(ALLOWED_HEADERS_PARAM, "Authorization, X-Auth-Username, X-Auth-Password, X-Requested-With,Content-Type,Accept,Origin,Access-Control-Request-Headers,cache-control");
 
 
     }

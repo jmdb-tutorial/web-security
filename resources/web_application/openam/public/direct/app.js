@@ -49,7 +49,10 @@ function getSecretABtn_click() {
         }
     }
     console.log("HTTP/1.0 GET http://a.resource.server.com:9010/application/api/protecteda");
+    console.log("Authorization: Bearer " + getCurrentToken());
+
     xhttp.open("GET", "http://a.resource.server.com:9010/application/api/protecteda", true);
+    xhttp.setRequestHeader("Authorization", "Bearer " + getCurrentToken());
 
     xhttp.send();
 
