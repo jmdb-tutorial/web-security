@@ -28,8 +28,10 @@ open am server for login.
 
 # TODO
 
-- Add XSS to openam server
 - Build out authentication api
+- Changing UX based on role
+- Backend logic depending on role
+- Prevent users from looking at their own data
 - Cookies?
 - Multiple services
 - API Gateway

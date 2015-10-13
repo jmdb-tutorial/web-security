@@ -1,7 +1,7 @@
 package jmdbtutorial.websecurity.openam.web_application;
 
-import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.lifecycle.ServerLifecycleListener;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -24,7 +24,7 @@ public class WebApplication extends Application<WebApplication_Configuration> {
 
     @Override
     public void initialize(Bootstrap<WebApplication_Configuration> bootstrap) {
-        bootstrap.addBundle(new ConfiguredAssetsBundle("/web_application/openam/public", "/", "index.html"));
+        bootstrap.addBundle(new AssetsBundle("/web_application/openam/public", "/", "index.html"));
     }
 
     @Override

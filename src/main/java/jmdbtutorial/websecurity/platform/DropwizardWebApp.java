@@ -1,15 +1,11 @@
 package jmdbtutorial.websecurity.platform;
 
-import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 import io.dropwizard.Application;
-import io.dropwizard.Bundle;
 import io.dropwizard.Configuration;
-import io.dropwizard.ConfiguredBundle;
-import io.dropwizard.lifecycle.ServerLifecycleListener;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.eclipse.jetty.server.Connector;
-import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,21 +17,21 @@ public class DropwizardWebApp<T extends Configuration> extends Application<T> {
     Logger LOG = LoggerFactory.getLogger(DropwizardWebApp.class);
     private String hostName;
     private String rootPath;
-    private final String serveFrom;
+    private final String resourcePath;
     private final String indexPage;
     private final boolean disableJersey;
 
-    public DropwizardWebApp(String hostName, String rootPath, String serveFrom, String indexPage, boolean disableJersey) {
+    public DropwizardWebApp(String hostName, String rootPath, String resourcePath, String indexPage, boolean disableJersey) {
         this.hostName = hostName;
         this.rootPath = rootPath;
-        this.serveFrom = serveFrom;
+        this.resourcePath = resourcePath;
         this.indexPage = indexPage;
         this.disableJersey = disableJersey;
     }
 
     @Override
     public void initialize(Bootstrap<T> bootstrap) {
-        bootstrap.addBundle((ConfiguredBundle) new ConfiguredAssetsBundle(serveFrom, "/", indexPage));
+        bootstrap.addBundle(new AssetsBundle(resourcePath, "/", indexPage));
     }
 
     @Override

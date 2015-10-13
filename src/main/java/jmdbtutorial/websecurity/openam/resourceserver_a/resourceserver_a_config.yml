@@ -3,4 +3,5 @@ server:
   connector:
     type: http
     port: 9010
+  rootPath: /api/*
 
