@@ -19,9 +19,9 @@ import java.io.IOException;
 import java.security.Principal;
 
 @Priority(Priorities.AUTHENTICATION)
-public class AuthorizationTokenCredentialsAuthFilter<P extends Principal> extends AuthFilter<String, P>   {
+public class AuthorizationTokenCredentialsAuthFilter<P extends Principal> extends AuthFilter<String, P> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OAuthCredentialAuthFilter.class);
+    Logger LOG = LoggerFactory.getLogger(AuthorizationTokenCredentialsAuthFilter.class);
 
     private AuthorizationTokenCredentialsAuthFilter() {
     }
@@ -31,11 +31,12 @@ public class AuthorizationTokenCredentialsAuthFilter<P extends Principal> extend
     public void filter(final ContainerRequestContext requestContext) throws IOException {
 
         if ("OPTIONS".equals(requestContext.getMethod())) {
-            LOGGER.info("Allowing OPTIONS call to go through for request: " + requestContext.getUriInfo().getAbsolutePath());
+            LOG.info("Allowing OPTIONS call to go through for request: " + requestContext.getUriInfo().getAbsolutePath());
             return;
         }
 
         final String header = requestContext.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+
         if (header != null) {
             try {
                 final int space = header.indexOf(' ');
@@ -71,7 +72,7 @@ public class AuthorizationTokenCredentialsAuthFilter<P extends Principal> extend
                     }
                 }
             } catch (AuthenticationException e) {
-                LOGGER.warn("Error authenticating credentials", e);
+                LOG.warn("Error authenticating credentials", e);
                 throw new InternalServerErrorException();
             }
         }
