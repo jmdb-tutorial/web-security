@@ -6,7 +6,7 @@ import jmdbtutorial.websecurity.csrf.banking.authn.LogoutResource;
 import jmdbtutorial.websecurity.csrf.banking.safe.SafeIndexResource;
 import jmdbtutorial.websecurity.csrf.banking.safe.SafeTransferResource;
 import jmdbtutorial.websecurity.csrf.banking.unsafe.UnsafeTransferResource;
-import jmdbtutorial.websecurity.platform.DropwizardWebApp;
+import jmdbtutorial.websecurity.platform.dropwizard.DropwizardWebApp;
 
 public class BankingWebapp extends DropwizardWebApp<BankingWebapp_Configuration> {
 

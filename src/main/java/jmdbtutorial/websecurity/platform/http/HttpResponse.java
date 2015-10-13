@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.openam.platform;
+package jmdbtutorial.websecurity.platform.http;
 
 import org.apache.http.StatusLine;
 

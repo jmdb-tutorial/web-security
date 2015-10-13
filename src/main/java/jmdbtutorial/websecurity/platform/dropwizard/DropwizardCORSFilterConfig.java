@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.openam.platform;
+package jmdbtutorial.websecurity.platform.dropwizard;
 
 import io.dropwizard.setup.Environment;
 import org.eclipse.jetty.servlet.FilterHolder;

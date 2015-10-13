@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <properties>
-        <dropwizard.version>0.8.4</dropwizard.version>
+        <dropwizard.version>0.9.0-rc4</dropwizard.version>
         <httpclient.version>4.5</httpclient.version>
         <jackson.version>1.9.13</jackson.version>
         <handlebars.version>2.2.2</handlebars.version>
@@ -29,6 +29,12 @@
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-assets</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-auth</artifactId>
             <version>${dropwizard.version}</version>
         </dependency>
 

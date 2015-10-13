@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.openam.platform;
+package jmdbtutorial.websecurity.platform.logback;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;

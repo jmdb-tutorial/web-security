@@ -5,7 +5,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import jmdbtutorial.websecurity.openam.authenticationserver.api.AuthenticateResource;
 
-import static jmdbtutorial.websecurity.openam.platform.DropwizardCORSFilterConfig.addCrossOriginResourceSharingFilter;
+import static jmdbtutorial.websecurity.platform.dropwizard.DropwizardCORSFilterConfig.addCrossOriginResourceSharingFilter;
 
 public class AuthenticationServer_App extends Application<AuthenticationServer_Configuration> {
 

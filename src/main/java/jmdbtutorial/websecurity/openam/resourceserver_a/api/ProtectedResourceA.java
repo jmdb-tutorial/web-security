@@ -13,8 +13,8 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 @Produces(APPLICATION_JSON)
 public class ProtectedResourceA {
 
-    //@RolesAllowed("worker")
     @GET
+    @RolesAllowed("worker")
     @Timed
     public SecretKnowledgeA tellMeTheSecret() {
         return new SecretKnowledgeA("The answer is..... 42");

@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.platform;
+package jmdbtutorial.websecurity.platform.dropwizard;
 
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;

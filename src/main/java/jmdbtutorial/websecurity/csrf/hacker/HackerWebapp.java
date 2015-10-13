@@ -1,8 +1,7 @@
 package jmdbtutorial.websecurity.csrf.hacker;
 
 import io.dropwizard.setup.Environment;
-import jmdbtutorial.websecurity.csrf.banking.BankingWebapp_Configuration;
-import jmdbtutorial.websecurity.platform.DropwizardWebApp;
+import jmdbtutorial.websecurity.platform.dropwizard.DropwizardWebApp;
 
 public class HackerWebapp extends DropwizardWebApp<HackerWebapp_Configuration> {
 
