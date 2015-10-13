@@ -35,4 +35,8 @@ public class HttpResponse {
     public boolean booleanValue(String key) {
         return responseValue(key);
     }
+
+    public String[] stringArrayValue(String key) {
+        return responseValue(key);
+    }
 }

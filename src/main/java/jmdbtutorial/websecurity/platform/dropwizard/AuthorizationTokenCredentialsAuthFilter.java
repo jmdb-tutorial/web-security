@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.platform.openam;
+package jmdbtutorial.websecurity.platform.dropwizard;
 
 import com.google.common.base.Optional;
 import io.dropwizard.auth.AuthFilter;

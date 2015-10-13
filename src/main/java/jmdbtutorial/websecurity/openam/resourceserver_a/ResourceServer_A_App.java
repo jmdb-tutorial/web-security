@@ -1,16 +1,10 @@
 package jmdbtutorial.websecurity.openam.resourceserver_a;
 
 import io.dropwizard.auth.AuthFilter;
-import io.dropwizard.auth.oauth.OAuthCredentialAuthFilter;
 import io.dropwizard.setup.Environment;
 import jmdbtutorial.websecurity.openam.resourceserver_a.api.ProtectedResourceA;
-import jmdbtutorial.websecurity.platform.dropwizard.DropwizardWebApp;
-import jmdbtutorial.websecurity.platform.openam.AuthorizationTokenCredentialsAuthFilter;
-import jmdbtutorial.websecurity.platform.openam.SimpleAuthorizer;
-import jmdbtutorial.websecurity.platform.openam.SimpleTokenAuthenticator;
+import jmdbtutorial.websecurity.platform.dropwizard.*;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
-
-import java.security.Principal;
 
 import static jmdbtutorial.websecurity.platform.dropwizard.DropwizardCORSFilterConfig.addCrossOriginResourceSharingFilter;
 
@@ -38,9 +32,11 @@ public class ResourceServer_A_App extends DropwizardWebApp<ResourceServer_A_Conf
         environment.jersey().register(new ProtectedResourceA());
 
 
+        OpenamAuth openamAuth = new OpenamAuth();
+
         AuthFilter authFilter = new AuthorizationTokenCredentialsAuthFilter.Builder<>()
-                .setAuthenticator(new SimpleTokenAuthenticator())
-                .setAuthorizer(new SimpleAuthorizer())
+                .setAuthenticator(openamAuth)
+                .setAuthorizer(openamAuth)
                 .setPrefix("Bearer")
                 .buildAuthFilter();
 

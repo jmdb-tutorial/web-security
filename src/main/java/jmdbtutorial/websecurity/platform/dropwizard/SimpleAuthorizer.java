@@ -1,4 +1,4 @@
-package jmdbtutorial.websecurity.platform.openam;
+package jmdbtutorial.websecurity.platform.dropwizard;
 
 import io.dropwizard.auth.Authorizer;
 import org.slf4j.Logger;

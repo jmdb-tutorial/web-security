@@ -14,7 +14,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 public class ProtectedResourceA {
 
     @GET
-    @RolesAllowed("worker")
+    @RolesAllowed("workers")
     @Timed
     public SecretKnowledgeA tellMeTheSecret() {
         return new SecretKnowledgeA("The answer is..... 42");

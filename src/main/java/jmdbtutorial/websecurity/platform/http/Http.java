@@ -6,17 +6,16 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.StringReader;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+import java.util.Map;
 
-import static java.lang.String.format;
 import static java.lang.System.out;
-import static java.util.Collections.emptyMap;
 
 /**
  * Created by jmdb on 21/08/2015.
@@ -44,6 +43,10 @@ public class Http {
     }
 
     public HttpResponse execute(HttpUriRequest request) {
+        return execute(request, new JsonResponseHandler());
+    }
+
+    public HttpResponse execute(HttpUriRequest request, ResponseHandler responseHandler) {
         out.println(request);
 
         List<Header> headers = Arrays.asList(request.getAllHeaders());
@@ -78,7 +81,7 @@ public class Http {
                     }
 
                     out.println("\n" + responseBody + "\n");
-                    Map responseMap = processResponseBody(response, responseBody);
+                    Map responseMap = responseHandler.processResponseBody(response, responseBody);
 
                     return new HttpResponse(response.getStatusLine(), responseMap);
                 }
@@ -92,46 +95,6 @@ public class Http {
         return null;
     }
 
-    private Map processResponseBody(CloseableHttpResponse response, StringBuffer responseBody) throws IOException {
-
-        if (isZeroContentLength(response)) {
-            return emptyMap();
-        }
-
-        if (isJson(response)) {
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(responseBody.toString(), Map.class);
-        } else if (isText(response)) {
-            Properties p = new Properties();
-            p.load(new StringReader(responseBody.toString()));
-            return new HashMap<Object, Object>(p);
-        }
-
-        throw new RuntimeException(format("Could not understand response body [%s]", responseBody));
-    }
-
-
-    private boolean isZeroContentLength(CloseableHttpResponse response) {
-        Header contentLengthHeader = response.getFirstHeader("Content-Length");
-        if (contentLengthHeader == null) {
-            return false;
-        }
-        return 0 == Integer.parseInt(contentLengthHeader.getValue());
-
-    }
-
-    private boolean isJson(CloseableHttpResponse response) {
-        return isContentType(response, "application/json");
-    }
-
-
-    private boolean isText(CloseableHttpResponse response) {
-        return isContentType(response, "text/plain");
-    }
-
-    private boolean isContentType(CloseableHttpResponse response, String contentType) {
-        return response.getFirstHeader("Content-Type").getValue().contains(contentType);
-    }
 
     public void destroy() throws Exception {
         http.close();
