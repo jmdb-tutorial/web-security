@@ -84,7 +84,7 @@ public class AuthorizationTokenCredentialsAuthFilter<P extends Principal> extend
      * Builder for {@link OAuthCredentialAuthFilter}.
      * <p>An {@link Authenticator} must be provided during the building process.</p>
      *
-     * @param <P> the type of the principal
+     * @param <P> the type of the principalˆ
      */
     public static class Builder<P extends Principal>
             extends AuthFilter.AuthFilterBuilder<String, P, AuthorizationTokenCredentialsAuthFilter<P>> {

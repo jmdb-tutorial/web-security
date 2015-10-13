@@ -6,12 +6,17 @@ function handleLoginResponse(xhttp) {
     console.log("200 ok HTTP/1.0\n" + xhttp.responseText);
     var responseData = JSON.parse( xhttp.responseText );
     localStorage.setItem("tokenId", responseData['tokenId']);
+    console.log("Stored token in local storage.");
 }
 
 function getCurrentToken() {
     return localStorage.getItem("tokenId");
 }
 
+function logoutBtn_click() {
+    localStorage.removeItem("tokenId");
+    console.log("Removed token from local storage.");
+}
 
 function loginBtn_click() {
     var username = valueFrom("username");
@@ -66,6 +71,11 @@ function initialiseApp() {
     document.getElementById("loginBtn").addEventListener("click", function () {
         loginBtn_click();
     });
+
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+        logoutBtn_click();
+    });
+
 
     document.getElementById("getSecretABtn").addEventListener("click", function () {
         getSecretABtn_click();
