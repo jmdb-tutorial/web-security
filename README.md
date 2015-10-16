@@ -26,12 +26,30 @@ open am server for login.
 
 - Get Role information into services
 
+# NGINX
+
+brew install nginx
+
+https://gist.github.com/netpoetica/5879685
+http://learnaholic.me/2012/10/10/installing-nginx-in-mac-os-x-mountain-lion/
+
+https://unix.stackexchange.com/questions/47436/why-is-the-root-directory-on-a-web-server-put-by-default-in-var-www
+
+html is in here /usr/local/Cellar/nginx/1.8.0/html
+
+sudo mkdir -p /srv/html/
+chown -R xxx /srv/html/
+
+ln -s PATH_TO_SOURCE /srv/html/websecurity.tutorial.com
+
 # TODO
 
-- Build out authentication api
 - Changing UX based on role
 - Backend logic depending on role
 - Prevent users from looking at their own data
 - Cookies?
-- Multiple services
+- Multiple services - services have their own users plus pass information in the header
 - API Gateway
+- Writing up
+- Permissions based authz
+
