@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+DocumentRoot /srv/html/websecurity.tutorial.com
+ServerName websecurity.tutorial.com
+           <Directory "/srv/html/websecurity.tutorial.com">
+           # AllowOverride All      # Deprecated
+           # Order Allow,Deny       # Deprecated
+           # Allow from all         # Deprecated
+
+           # --New way of doing it
+           Require all granted
+        </Directory>
+</VirtualHost>

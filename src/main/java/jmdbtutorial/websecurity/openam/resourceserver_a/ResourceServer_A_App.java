@@ -26,7 +26,7 @@ public class ResourceServer_A_App extends DropwizardWebApp<ResourceServer_A_Conf
                     Environment environment) {
 
 
-        addCrossOriginResourceSharingFilter(environment, "http://websecurity.tutorial.com:8085");
+        addCrossOriginResourceSharingFilter(environment, "http://websecurity.tutorial.com,http://websecurity.tutorial.com:8085,http://websecurity.tutorial.com:8080");
 
         environment.jersey().setUrlPattern("/api/*");
         environment.jersey().register(new ProtectedResourceA());

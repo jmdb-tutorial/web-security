@@ -1,0 +1,55 @@
+---
+- hosts: all
+  sudo: yes
+  
+  tasks:
+    - name: upgrade all packages
+      yum: name=* state=latest 
+
+    
+    - name: install network tools
+      yum: name=net-tools
+
+    - name: install the 'Development tools' package group
+    yum: name="@Development tools" state=present
+      
+    - name: install subversion
+      yum: name=svn
+
+    - name: install emacs
+      yum: emacs
+
+    - name: install jdk
+      yum: java-1.8.0-openjdk-devel.x86_64
+    
+    - name: install libxml2
+      yum: name=libxml2
+
+    - name: install libxml2-devel
+      yum: name=libxml2-devel
+  
+    - name: install apache-ant
+      yum: ant
+
+    - name: install maven
+      yum: maven
+
+      
+    - name: install apache
+      yum: name=httpd
+
+    - name: install apache-devel
+      yum: name=httpd-devel
+      
+    - name: Make apache run at startup
+      shell: systemctl enable httpd
+
+    - name: Start apache
+      shell: systemctl start httpd
+
+    - name: Open firewall
+      shell: sudo firewall-cmd --permanent --add-port=80/tcp;sudo firewall-cmd --permanent --add-port=443/tcp;sudo firewall-cmd --reload
+
+    - name: install motd
+      copy: src=ansible/motd.txt dest=/etc/motd backup=yes
+      

@@ -42,6 +42,29 @@ chown -R xxx /srv/html/
 
 ln -s PATH_TO_SOURCE /srv/html/websecurity.tutorial.com
 
+https://stackoverflow.com/questions/10034846/how-to-get-username-from-opensso-openam-system
+
+# Apache
+
+sudo su -
+apachectl start
+
+http://jason.pureconcepts.net/2014/11/install-apache-php-mysql-mac-os-x-yosemite/
+
+https://stackoverflow.com/questions/9110179/adding-virtualhost-fails-access-forbidden-error-403-xampp-windows-7
+
+Get it up and running and then go to access control / realms / agents
+
+Add a new web agent
+
+name apache-agent
+password apachedemo
+
+Store properties locally
+
+server: http://loan.example.com:9009/openam
+agent: http://websecurity.tutorial.com
+
 # TODO
 
 - Changing UX based on role
