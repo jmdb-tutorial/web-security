@@ -60,9 +60,6 @@
     - name: Add vhosts to httpd conf
       lineinfile: dest=/etc/httpd/conf/httpd.conf line="Include /etc/httpd/conf/vhosts/*.conf"
 
-    - name: link srv/html to web content
-      shell: ln -sf /home/vagrant/srv/html/web_application/openam/public /srv/html/websecurity.tutorial.com
-
     - name: Re-Start apache
       shell: systemctl restart httpd
 
