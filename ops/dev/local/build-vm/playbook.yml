@@ -63,3 +63,15 @@
     - name: Re-Start apache
       shell: systemctl restart httpd
 
+    - name: "Add openam app to hosts"
+      lineinfile:
+        state: present
+        dest: /etc/hosts
+        line: 192.168.33.1  loan.example.com
+
+    - name: "Add openam app to hosts"
+      lineinfile:
+        state: present
+        dest: /etc/hosts
+        line: 127.0.0.1  websecurity.tutorial.com
+

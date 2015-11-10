@@ -47,7 +47,8 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "../../../../resources", "/srv/html",
       owner: "apache",
       group: "apache",
-      mount_options: ["dmode=777,fmode=777"]
+      mount_options: ["dmode=777,fmode=777"],
+      type: "rsync"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
