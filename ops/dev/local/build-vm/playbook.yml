@@ -16,12 +16,11 @@
     - name: install subversion
       yum: name=svn
 
-   # - name: install emacs
-   #   yum: emacs
+    - name: install emacs
+      yum: name=emacs
 
-# These need key-value arguments
-   # - name: install jdk
-   #   yum: java-1.8.0-openjdk-devel.x86_64
+    - name: install jdk
+      yum: name=java-1.8.0-openjdk-devel.x86_64
     
     - name: install libxml2
       yum: name=libxml2
@@ -29,11 +28,11 @@
     - name: install libxml2-devel
       yum: name=libxml2-devel
   
-  #  - name: install apache-ant
-  #    yum: ant
+    - name: install apache-ant
+      yum: name=ant
 
-   # - name: install maven
-   #   yum: maven
+    - name: install maven
+      yum: name=maven
 
       
     - name: install apache
@@ -44,6 +43,9 @@
       
     - name: Make apache run at startup
       shell: systemctl enable httpd
+
+    - name: Install php
+      yum: name=php
 
     - name: Open firewall
       shell: sudo firewall-cmd --permanent --add-port=80/tcp;sudo firewall-cmd --permanent --add-port=443/tcp;sudo firewall-cmd --reload
