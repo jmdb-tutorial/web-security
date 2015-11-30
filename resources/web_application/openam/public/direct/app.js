@@ -54,6 +54,7 @@ function handleSecretResponse_A(xhttp) {
 }
 
 function getSecretABtn_click() {
+    setResultText("");
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4) {
@@ -62,7 +63,7 @@ function getSecretABtn_click() {
             }  else if (xhttp.status == 401) {
                 setResultText("Not authorised! Login first")
             } else {
-                setResultText("Bad http response: " + xhtt.responseText);
+                setResultText("Bad http response: " + xhttp.responseText);
             }
         }
     }
@@ -79,6 +80,8 @@ function getSecretABtn_click() {
         alert(e);
     }
 }
+
+
 
 
 function initialiseApp() {

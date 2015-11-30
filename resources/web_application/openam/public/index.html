@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- To re-load this file do vagrant rsync-auto or vagrant reload -->
+
 <head>
     <meta charset="UTF-8">
     <title>Demo applications for Security</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <script src="./openam-ajax.js"></script>
+
 </head>
 <body>
     <h1>Demo security apps</h1>
@@ -15,5 +21,13 @@
     <p>If you want to see the php environment, go <a href="echo.php">here</a></p>
 
     <p>If you are running this behind an openam agent properly configured, you can see the <a href="user-details.php">user details</a></p>
+
+    <p>If you want to see how an AJAX request works behind openam click <input type="button" id="openAmAjaxBtn" value="here"></input></p>
+
+    <div id="call-results">
+
+    </div>
+
+    <p>To log out of open am click <a href="http://loan.example.com:9009/openam/XUI/#logout/">here</a></p>
 </body>
 </html>
