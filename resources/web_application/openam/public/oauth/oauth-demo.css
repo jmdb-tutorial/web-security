@@ -1,0 +1,33 @@
+
+div.oauth-section {
+    float:right;
+    width:45%;
+    border: 2px solid grey;
+    padding: 20px;
+
+}
+
+div.example {
+    float:left;
+    width:49%;
+
+
+}
+
+div.rfc-excerpt {
+    font: 14px courier;
+}
+
+#output {
+    padding:10px;
+    margin: 10px 0px 0px;
+    border: 1px solid grey;
+    font: 12px courier;
+}
+
+#output p {
+    padding:0;
+    margin:0;
+    margin-bottom:2px;
+}
+

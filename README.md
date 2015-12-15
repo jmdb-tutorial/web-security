@@ -8,6 +8,13 @@ openam (see ixcode/openam-server and https://github.com/ForgeRock/frstack)
 
 ## Setup Machine
 
+# Vagrant
+
+Type 
+
+vagrant up
+vagrant rsync-auto
+
 cd ops/dev/local/
 ./configure_local_machine.sh
 

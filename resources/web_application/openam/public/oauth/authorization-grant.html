@@ -3,8 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="oauth-demo.css"/>
+    <script src="ouath-demo.js"></script>
 </head>
 <body>
+
+
+<div class="example">
+    <p>Ok, here we are going to do the flow on the right. In this example we are going to try to redirect back to this page which should have some parameters in the URL.
+    </p>
+
+    <p>In this scenario we are using a confidential client type which means we are going to pass the client id and secret in the authorize uerl</p>
+
+    <p>Click this <input id="invokeApiBtn" type="button" value="HERE!"/></p>
+
+    <b>Output:</b>
+    <div id="output">
+
+    </div>
+
+</div>
+<div class="oauth-section">
+    <h4>4.1. Authorization Code Grant</h4>
+
+<div class="rfc-excerpt">
+
+   The authorization code grant type is used to obtain both access
+   tokens and refresh tokens and is optimized for <a target="oauth-spec" href="https://tools.ietf.org/html/rfc6749#section-2.1">confidential clients</a>.
+   Since this is a redirection-based flow, the client must be capable of
+   interacting with the resource owner's user-agent (typically a web
+   browser) and capable of receiving incoming requests (via redirection)
+   from the authorization server.
+    <pre>
+     +----------+
+     | Resource |
+     |   Owner  |
+     |          |
+     +----------+
+          ^
+          |
+         (B)
+     +----|-----+          Client Identifier      +---------------+
+     |         -+----(A)-- & Redirection URI ---->|               |
+     |  User-   |                                 | Authorization |
+     |  Agent  -+----(B)-- User authenticates --->|     Server    |
+     |          |                                 |               |
+     |         -+----(C)-- Authorization Code ---<|               |
+     +-|----|---+                                 +---------------+
+       |    |                                         ^      v
+      (A)  (C)                                        |      |
+       |    |                                         |      |
+       ^    v                                         |      |
+     +---------+                                      |      |
+     |         |>---(D)-- Authorization Code ---------'      |
+     |  Client |          & Redirection URI                  |
+     |         |                                             |
+     |         |<---(E)----- Access Token -------------------'
+     +---------+       (w/ Optional Refresh Token)
+
+   Note: The lines illustrating steps (A), (B), and (C) are broken into
+   two parts as they pass through the user-agent.
+
+                     Figure 3: Authorization Code Flow
+        </pre>
+    <a target="oauth-spec" href="https://tools.ietf.org/html/rfc6749#section-4.1">More ...</a>
+</div>
+</div>
 
 </body>
 </html>
