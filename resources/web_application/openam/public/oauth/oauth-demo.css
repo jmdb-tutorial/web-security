@@ -23,6 +23,7 @@ div.rfc-excerpt {
     margin: 10px 0px 0px;
     border: 1px solid grey;
     font: 12px courier;
+    word-wrap: break-word;
 }
 
 #output p {
