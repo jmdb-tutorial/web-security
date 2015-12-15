@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en_GB">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>OAuth Code Grant</title>
     <link rel="stylesheet" href="oauth-demo.css"/>
+    <script src="url-object.js"></script>
     <script src="ouath-demo.js"></script>
+
 </head>
 <body>
 
@@ -13,7 +15,7 @@
     <p>Ok, here we are going to do the flow on the right. In this example we are going to try to redirect back to this page which should have some parameters in the URL.
     </p>
 
-    <p>In this scenario we are using a confidential client type which means we are going to pass the client id and secret in the authorize uerl</p>
+    <p>In this scenario we are using a confidential client type which means we are going to pass the client id and secret in the authorize url. You can see the parameters that are being passed in the output box below.</p>
 
     <p><input id="invokeApiBtn" type="button" value="Authorize the client"/></p>
 
