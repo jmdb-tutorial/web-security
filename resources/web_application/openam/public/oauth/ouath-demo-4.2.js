@@ -1,10 +1,9 @@
 function initialiseLogger(outputElementId) {
     var outputElement = document.getElementById(outputElementId);
-    console.log(outputElement);
     return {
         info: function (text) {
             var para = document.createElement("p");
-            var textnode = document.createTextNode("[info] " + text);
+            var textnode = document.createTextNode(text);
             para.appendChild(textnode);
 
 
@@ -49,7 +48,7 @@ function getAccessToken(log, authorizationCode) {
     var password = clientAuthorisationRequest['clientSecret'];
 
 
-    xhttp.withCredentials = true;
+    //xhttp.withCredentials = true;
     xhttp.open("POST", accessTokenUrl, true);
     xhttp.setRequestHeader("Authorization", "Basic " + btoa(userName + ":" + password));
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -73,14 +72,32 @@ function getAccessToken(log, authorizationCode) {
     }
 
 }
+function getParameters(location) {
+    if (typeof location === 'undefined') {
+        location = window.location;
+    }
+    var hashParams = new (function Params() {})();
+    if (location.hash.length === 0) {
+        return hashParams;
+    };
+    var hashArray = location.hash.substring(1).split('&');
+    for (var i in hashArray) {
+        var keyValPair = hashArray[i].split('=');
+        hashParams[keyValPair[0]] = keyValPair[1];
+    }
+    return hashParams;
+}
 
 function processRedirectResponse(log) {
-    var currentUrl = urlObject({'url': window.location});
+    log.info("Redirected back to: " + window.location);
+    log.info("Hash fragment: " + window.location.hash);
+    var hashParameters = getParameters(window.location);
 
-    var authorisationCode = currentUrl.parameters['code'];
-    if (authorisationCode) {
-        log.info("Authorisaztion code: " + authorisationCode);
-        getAccessToken(log, authorisationCode);
+    var accessToken = hashParameters['access_token'];
+    if (accessToken) {
+        log.info("Access token: " + accessToken);
+        log.info("Token type: " + hashParameters['token_type']);
+        log.info("Expires in: " + hashParameters['expires_in']);
     }
 }
 
@@ -88,7 +105,7 @@ function processRedirectResponse(log) {
 function initialiseApp() {
     var log = initialiseLogger("output");
 
-    log.info("Demo of openam oauth code grant flow.");
+    log.info("Demo of openam oauth flow 4.2 - Implicit Grant.");
 
     log.info("Authorisation Request Parameters:")
     for (var key in clientAuthorisationRequest) {
@@ -122,12 +139,12 @@ var clientAuthorisationRequest = {
     clientId: "confidentialWebClient",
     clientSecret: "oauthclient",
     state: "foo",
-    redirectUrl: encodeURIComponent("http://websecurity.tutorial.com/oauth/authorization-grant.html"),
+    redirectUrl: encodeURIComponent("http://websecurity.tutorial.com/oauth/4-2-implicit-grant.html"),
     scope: "secrets"
 };
 
 var authorizationUrlTemplate = "http://loan.example.com:9009/openam/oauth2/authorize" +
-    "?response_type=code" +
+    "?response_type=token" +
     "&client_id={clientId}" +
     "&client_secret={clientSecret}" +
     "&state=foo={state}" +
