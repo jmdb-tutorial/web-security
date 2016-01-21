@@ -58,7 +58,7 @@ function getAccessToken(log, authorizationCode) {
         redirectUrl: clientAuthorisationRequest['redirectUrl'],
         clientId: clientAuthorisationRequest['clientId']
     }
-    var accessTokenBody = accessTokenBodyTemplate.supplant(accessTokenRequest)
+    var accessTokenBody = accessTokenBodyTemplate.supplant(accessTokenRequest);
 
     log.info("curl --request POST --user \"" + userName + ":" + password +  "\"" +
         " --data \"" + accessTokenBody + "\" " +

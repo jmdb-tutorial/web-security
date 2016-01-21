@@ -18,7 +18,7 @@
 
     <p><a href="./4-2-implicit-grant.html">Reset</a> this page</p>
 
-    <p>In this scenario we are using a confidential client type which means we are going to pass the client id and secret in the authorize url. You can see the parameters that are being passed in the output box below.</p>
+    <p>This scenario is intended for public clients i.e. those which are unable to store secrets securely (like a web browser). In this case you don't get an authorisation code (because it allows you to get more tokens) and you don't get refresh tokens (because you can get more tokens with it. You get given a token and have to keep re-authenticating with the authentication server. Depending on the type of activity you might want to limit the time exposure for one of these tokens. </p>
 
     <p><input id="invokeApiBtn" type="button" value="Authorize the client"/></p>
 
