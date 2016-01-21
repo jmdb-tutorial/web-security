@@ -1,17 +1,3 @@
-function initialiseLogger(outputElementId) {
-    var outputElement = document.getElementById(outputElementId);
-    return {
-        info: function (text) {
-            var para = document.createElement("p");
-            var textnode = document.createTextNode(text);
-            para.appendChild(textnode);
-
-
-            outputElement.appendChild(para);
-        }
-    }
-}
-
 
 function handleAccessTokenResponse(log, xhttp) {
     var responseData = JSON.parse(xhttp.responseText);
@@ -63,9 +49,6 @@ function invokeApiBtn_click(log) {
 }
 
 
-
-
-
 function initialiseApp() {
     var log = initialiseLogger("output");
 
@@ -78,18 +61,7 @@ function initialiseApp() {
     });
 
 
-}/**
- * Thanks Crockford!
- * http://javascript.crockford.com/remedial.html
- */
-String.prototype.supplant = function (o) {
-    return this.replace(/{([^{}]*)}/g,
-        function (a, b) {
-            var r = o[b];
-            return typeof r === 'string' || typeof r === 'number' ? r : a;
-        }
-    );
-};
+}
 
 var clientAuthorisationRequest = {
     clientId: "confidentialWebClient",

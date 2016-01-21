@@ -1,18 +1,3 @@
-function initialiseLogger(outputElementId) {
-    var outputElement = document.getElementById(outputElementId);
-    return {
-        info: function (text) {
-            var para = document.createElement("p");
-            var textnode = document.createTextNode(text);
-            para.appendChild(textnode);
-
-
-            outputElement.appendChild(para);
-        }
-    }
-}
-
-
 function invokeApiBtn_click(log) {
 
     var redirectUrl = authorizationUrlTemplate.supplant(clientAuthorisationRequest)
@@ -21,57 +6,7 @@ function invokeApiBtn_click(log) {
     window.location.href = redirectUrl;
 }
 
-function handleAccessTokenResponse(log, xhttp) {
-    var responseData = JSON.parse(xhttp.responseText);
 
-    log.info(JSON.stringify(responseData));
-}
-
-function getAccessToken(log, authorizationCode) {
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (xhttp.readyState == 4) {
-            if (xhttp.status == 200) {
-                handleAccessTokenResponse(log, xhttp);
-            } else if (xhttp.status == 401) {
-                log.info("Not authorised! Login first")
-            } else {
-                log.info("Bad http response: " + xhttp.status);
-                log.info("Response: " + xhttp.responseText);
-            }
-        }
-    }
-
-
-    var userName = clientAuthorisationRequest['clientId'];
-    var password = clientAuthorisationRequest['clientSecret'];
-
-
-    //xhttp.withCredentials = true;
-    xhttp.open("POST", accessTokenUrl, true);
-    xhttp.setRequestHeader("Authorization", "Basic " + btoa(userName + ":" + password));
-    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    var accessTokenRequest = {
-        authorizationCode: authorizationCode,
-        redirectUrl: clientAuthorisationRequest['redirectUrl'],
-        clientId: clientAuthorisationRequest['clientId']
-    }
-    var accessTokenBody = accessTokenBodyTemplate.supplant(accessTokenRequest);
-
-    log.info("curl --request POST --user \"" + userName + ":" + password +  "\"" +
-        " --data \"" + accessTokenBody + "\" " +
-        accessTokenUrl);
-
-
-    try {
-        xhttp.send(accessTokenBody);
-    } catch (e) {
-        alert(e);
-    }
-
-}
 function getParameters(location) {
     if (typeof location === 'undefined') {
         location = window.location;
@@ -151,10 +86,5 @@ var authorizationUrlTemplate = "http://loan.example.com:9009/openam/oauth2/autho
     "&redirect_uri={redirectUrl}" +
     "&scope={scope}";
 
-var accessTokenUrl = "http://loan.example.com:9009/openam/oauth2/access_token";
-var accessTokenBodyTemplate = "grant_type=authorization_code" +
-    "&code={authorizationCode}" +
-    "&redirect_uri={redirectUrl}" +
-    "&clientId={clientId}";
 
 window.onload = initialiseApp;

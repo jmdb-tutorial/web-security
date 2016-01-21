@@ -1,18 +1,3 @@
-function initialiseLogger(outputElementId) {
-    var outputElement = document.getElementById(outputElementId);
-    return {
-        info: function (text) {
-            var para = document.createElement("p");
-            var textnode = document.createTextNode("[info] " + text);
-            para.appendChild(textnode);
-
-
-            outputElement.appendChild(para);
-        }
-    }
-}
-
-
 function invokeApiBtn_click(log) {
 
     var redirectUrl = authorizationUrlTemplate.supplant(clientAuthorisationRequest)
@@ -27,7 +12,7 @@ function handleAccessTokenResponse(log, xhttp) {
     log.info(JSON.stringify(responseData));
 }
 
-function getAccessToken(log, authorizationCode) {
+function authorise(log, authorizationCode) {
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -47,8 +32,6 @@ function getAccessToken(log, authorizationCode) {
     var userName = clientAuthorisationRequest['clientId'];
     var password = clientAuthorisationRequest['clientSecret'];
 
-
-    //xhttp.withCredentials = true;
     xhttp.open("POST", accessTokenUrl, true);
     xhttp.setRequestHeader("Authorization", "Basic " + btoa(userName + ":" + password));
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -79,7 +62,7 @@ function processRedirectResponse(log) {
     var authorisationCode = currentUrl.parameters['code'];
     if (authorisationCode) {
         log.info("Authorisaztion code: " + authorisationCode);
-        getAccessToken(log, authorisationCode);
+        authorise(log, authorisationCode);
     }
 }
 
@@ -103,19 +86,6 @@ function initialiseApp() {
 
 
 }
-
-/**
- * Thanks Crockford!
- * http://javascript.crockford.com/remedial.html
- */
-String.prototype.supplant = function (o) {
-    return this.replace(/{([^{}]*)}/g,
-        function (a, b) {
-            var r = o[b];
-            return typeof r === 'string' || typeof r === 'number' ? r : a;
-        }
-    );
-};
 
 var clientAuthorisationRequest = {
     clientId: "confidentialWebClient",
