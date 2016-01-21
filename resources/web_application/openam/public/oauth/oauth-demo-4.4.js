@@ -3,6 +3,8 @@ function handleAccessTokenResponse(log, xhttp) {
     var responseData = JSON.parse(xhttp.responseText);
 
     log.info(JSON.stringify(responseData));
+
+    setAccessToken(responseData['access_token']);
 }
 
 

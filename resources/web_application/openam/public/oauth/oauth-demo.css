@@ -15,20 +15,28 @@ div.example {
 }
 
 div.rfc-excerpt {
-    font: 14px courier;
+    font: 14px "Courier New";
 }
 
 #output {
     padding:10px;
     margin: 10px 0px 0px;
     border: 1px solid grey;
-    font: 12px courier;
-    word-wrap: break-word;
+    font: 12px "Courier New";
+    overflow: scroll;
+    display: block;
 }
 
 #output p {
     padding:0;
     margin:0;
-    margin-bottom:5px;
+    margin-bottom:1px;
+    overflow: scroll;
+}
+
+#output pre {
+    padding: 0;
+    margin:0;
+    font: 12px "Courier New";
 }
 
