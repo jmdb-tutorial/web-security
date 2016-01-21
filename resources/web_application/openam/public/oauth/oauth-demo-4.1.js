@@ -109,4 +109,5 @@ var accessTokenBodyTemplate = "grant_type=authorization_code" +
     "&redirect_uri={redirectUrl}" +
     "&clientId={clientId}";
 
-window.onload = initialiseApp;
+registerInitialiser(initialiseApp);
+window.onload = initialise;

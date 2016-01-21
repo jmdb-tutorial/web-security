@@ -86,5 +86,5 @@ var authorizationUrlTemplate = "http://loan.example.com:9009/openam/oauth2/autho
     "&redirect_uri={redirectUrl}" +
     "&scope={scope}";
 
-
-window.onload = initialiseApp;
+registerInitialiser(initialiseApp);
+window.onload = initialise;

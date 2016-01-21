@@ -92,4 +92,5 @@ var authorizationBodyTemplate = "grant_type=password" +
 
 var accessTokenUrl = "http://loan.example.com:9009/openam/oauth2/access_token";
 
-window.onload = initialiseApp;
+registerInitialiser(initialiseApp);
+window.onload = initialise;
