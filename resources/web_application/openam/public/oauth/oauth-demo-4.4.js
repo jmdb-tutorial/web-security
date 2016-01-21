@@ -68,7 +68,7 @@ function initialiseApp() {
 var clientAuthorisationRequest = {
     clientId: "confidentialWebClient",
     clientSecret: "oauthclient",
-    scope: "secrets"
+    scope: "secrets%20cn%20mail"
 };
 
 var authorizationUrlTemplate = "http://loan.example.com:9009/openam/oauth2/token";

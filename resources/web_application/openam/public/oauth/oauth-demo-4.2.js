@@ -33,6 +33,8 @@ function processRedirectResponse(log) {
         log.info("Access token: " + accessToken);
         log.info("Token type: " + hashParameters['token_type']);
         log.info("Expires in: " + hashParameters['expires_in']);
+
+        setAccessToken(hashParameters['access_token']);
     }
 }
 
@@ -75,7 +77,7 @@ var clientAuthorisationRequest = {
     clientSecret: "oauthclient",
     state: "foo",
     redirectUrl: encodeURIComponent("http://websecurity.tutorial.com/oauth/4-2-implicit-grant.html"),
-    scope: "secrets"
+    scope: "secrets%20cn%20mail%20uid"
 };
 
 var authorizationUrlTemplate = "http://loan.example.com:9009/openam/oauth2/authorize" +

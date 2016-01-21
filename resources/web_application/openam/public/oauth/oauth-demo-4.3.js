@@ -4,6 +4,8 @@ function handleAccessTokenResponse(log, xhttp) {
     var responseData = JSON.parse(xhttp.responseText);
 
     log.info(JSON.stringify(responseData));
+
+    setAccessToken(responseData['access_token']);
 }
 
 
@@ -80,7 +82,7 @@ function initialiseApp() {
 var clientAuthorisationRequest = {
     clientId: "confidentialWebClient",
     clientSecret: "oauthclient",
-    scope: "secrets"
+    scope: "secrets%20mail%20cn"
 };
 
 var authorizationUrlTemplate = "http://loan.example.com:9009/openam/oauth2/token";

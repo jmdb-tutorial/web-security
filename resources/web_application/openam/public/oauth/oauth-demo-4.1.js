@@ -10,6 +10,8 @@ function handleAccessTokenResponse(log, xhttp) {
     var responseData = JSON.parse(xhttp.responseText);
 
     log.info(JSON.stringify(responseData));
+
+    setAccessToken(responseData['access_token']);
 }
 
 function authorise(log, authorizationCode) {
@@ -92,7 +94,7 @@ var clientAuthorisationRequest = {
     clientSecret: "oauthclient",
     state: "foo",
     redirectUrl: encodeURIComponent("http://websecurity.tutorial.com/oauth/4-1-authorization-code-grant.html"),
-    scope: "secrets"
+    scope: "secrets%20cn%20mail"
 };
 
 var authorizationUrlTemplate = "http://loan.example.com:9009/openam/oauth2/authorize" +
