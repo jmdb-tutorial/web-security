@@ -77,7 +77,7 @@ var clientAuthorisationRequest = {
     clientSecret: "oauthclient",
     state: "foo",
     redirectUrl: encodeURIComponent("http://websecurity.tutorial.com/oauth/4-2-implicit-grant.html"),
-    scope: "secrets%20cn%20mail%20uid"
+    scope: "secrets%20cn%20mail%20uid%20roles"
 };
 
 var authorizationUrlTemplate = "http://loan.example.com:9009/openam/oauth2/authorize" +
